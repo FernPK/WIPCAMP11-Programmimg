@@ -4,27 +4,67 @@
 
 package XI.Project;
 
+import java.util.Scanner;
+
 /**
  *
  * @author sittiwatlcp
  */
 public class WIPCargo {
     public static void main(String[] args) {
-        int age = 18;
-        String name = "Wippo";
-        double money = 1100.11;
+        Scanner sc = new Scanner(System.in);
+        int item = 0;
+        int limit = 10;
+        int menu;
         
-        boolean online = true;
-        String status;
+        System.out.println("1. Add item\n2. Remove item\n3.Check item");
+        System.out.print("item : ");
+        item = sc.nextInt();
+        System.out.print("limit : ");
+        limit = sc.nextInt();
+        System.out.print("menu : ");
+        menu = sc.nextInt();
         
-        System.out.println("Hi! my name is " + name + " i'm " + age + " Y/O ");
-        
-        if(online == true){
-            status = "Online";
-        } else {
-            status = "Offline";
+        if(menu == 1){
+            if(item<limit){
+                int amount;
+                System.out.print("amount : ");
+                amount = sc.nextInt();
+                if((item + amount)>limit){
+                    System.out.println("item เกิน limit");
+                }
+                else {
+                    //System.out.println("item : " +(item+amount) "limit : " + limit);
+                    System.out.printf("item : %d \nlimit : %d",item+amount,limit);
+                }
+            }
+            else {
+                System.out.println("item เต็มแล้ว");
+            }
+        }
+        else if(menu == 2){
+            if(item == 0){
+             
+                System.out.print("ไม่มี item ในโกดัง");
+                
+                }
+            else {
+                int amount2;
+                System.out.print("amount : ");
+                amount2 = sc.nextInt();
+                if(amount2>item){
+                    System.out.println("item ไม่พอ");  
+                }
+                else {
+                System.out.printf("item : %d\nlimit : %d",item-amount2,limit);
+            }
+                
+            }
+        }
+        else if(menu == 3){
+            System.out.printf("item : %d\nlimit : %d",item,limit);
         }
         
-        System.out.println("I'm currently " + status + " and have " + money + "THB. left.");
+
     }
 }
